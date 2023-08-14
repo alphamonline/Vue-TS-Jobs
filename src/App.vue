@@ -1,35 +1,27 @@
 <template>
   <div class="app">
-    hello vue-ts jobs {{ name }} - {{ age }}
+   vue-ts jobs
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs, ref } from 'vue';
+import { defineComponent, ref } from 'vue';
+import Job from './types/job'
 
 export default defineComponent({
   name: 'App',
   components: {},
   setup() {
-
-    //Using reactivity
-    // const state = reactive({
-    //   name: 'Alpha',
-    //   age: 27 as number | number //:use type assertion
-    // })
-
-    // return { ...toRefs(state) }
-
-    //Using ref 
-    const name = ref('Alpha')
-    const age = ref<number | string>(27) //: use generic arguments
-
-    name.value = 'Alpha'
-    age.value = 27
+    const jobs = ref<Job[]>([
+      {title: 'Secretary', location: 'Bulawayo', salary: 250, id: '1'},
+      {title: 'Accountant', location: 'Harare', salary: 300, id: '2'},
+      {title: 'Web-Developer', location: 'Mutare', salary: 500, id: '3'},
+      {title: 'Teacher', location: 'Harare', salary: 150, id: '4'},
+      {title: 'Teacher', location: 'Mutare', salary: 200, id: '5'},
+    ])
 
     return {
-      name,
-      age
+      jobs
     }
   },
 });
