@@ -45,7 +45,7 @@ export default defineComponent({
 </script>
 
 <style>
-header {
+  header {
     text-align: center;
   }
   header .order {
